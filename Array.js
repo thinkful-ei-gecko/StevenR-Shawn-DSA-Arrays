@@ -1,5 +1,6 @@
 const Memory = require('./Memory');
 
+//Intantiates an instance of the memory class to use.  Without intantiation, cannot ustilize
 let memory = new Memory();
 
 class Array {
@@ -7,6 +8,15 @@ class Array {
       this.length = 0;
       this._capacity = 0;
       this.ptr = memory.allocate(this.length);
+  }
+
+  urlify(string){
+    let urlString = string.split(' ').join('%20');
+    return urlString;
+  }
+
+  esc(string){
+    return escape(string);
   }
 
   push(value) {
