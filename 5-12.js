@@ -68,21 +68,77 @@ function cheaterMerge(arr1, arr2){
 console.log(cheaterMerge(arr1, arr2));
 
 //9. Remove characters
-function removeChar(str, chars){
-  let solution = [];
-  for(let i = 0; i < str.length; i++){
-    for(let x = 0; x < chars.length; x++){
-      if(str[i] != chars[x]){
-        solution.push(str[i]);
-        console.log(`str[${i}] =  ${str[i]}`);
-        console.log(`chars[${x}] =  ${chars[x]}`);
-      }
+function removeChar(str1, str2) {
+  let tempArr = [],
+    newStr = [],
+    newStrMod = "";
+  let index = 0,
+    j = 0;
+
+  for (let i = 0; i < str2.length; i++) {
+    index = Math.abs(str2[i].charCodeAt() - "a".charCodeAt());
+    if (!tempArr[index]) {
+      tempArr[index] = 1;
     }
   }
-  return solution.toString();  
+  for (let i = 0; i < str1.length; i++) {
+    index = Math.abs(str1[i].charCodeAt() - "a".charCodeAt());
+    if (!tempArr[index]) {
+      newStr[j++] = str1[i];
+    }
+  }
+  for (let i = 0; i < newStr.length; i++) {
+    newStrMod += newStr[i];
+  }
+  let str1 = "Battle of the Vowels: Hawaii vs. Grozny";
+  let charToRemove = "aeiou";
+  return newStrMod;
+}
+// 10. Products
+
+function products(arr) {
+  let ret = [];
+  for (let idx1 = 0; idx1 < arr.length; ++idx1) {
+    let prod = 1;
+    for (let idx2 = 0; idx2 < arr.length; ++idx2) {
+      if (idx1 != idx2) {
+        prod *= arr[idx2];
+      }
+    }
+    ret.push(prod);
+  }
+  let productsArr = [1, 3, 9, 4];
+
+  return ret;
 }
 
-let testString = 'Battle of the Vowels: Hawaii vs. Grozny';
-let testChars = 'aeiou';
+// 12. String Rotation
 
-console.log(removeChar(testString, testChars));
+function strRotation(string1, string2) {
+  let StringRot1 = "amazon"; 
+  let stringRot2 = "azonma";
+  return (string2 + string2).indexOf(string1) != -1;
+  
+}
+
+
+
+
+// function removeChar(str, chars){
+//   let solution = [];
+//   for(let i = 0; i < str.length; i++){
+//     for(let x = 0; x < chars.length; x++){
+//       if(str[i] != chars[x]){
+//         solution.push(str[i]);
+//         console.log(`str[${i}] =  ${str[i]}`);
+//         console.log(`chars[${x}] =  ${chars[x]}`);
+//       }
+//     }
+//   }
+//   return solution.toString();  
+// }
+
+// let testString = 'Battle of the Vowels: Hawaii vs. Grozny';
+// let testChars = 'aeiou';
+
+// console.log(removeChar(testString, testChars));
